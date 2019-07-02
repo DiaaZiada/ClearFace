@@ -32,3 +32,5 @@ this video test Faces project on part of video of End Game trailer, and here som
 
 ![mini exception cnn model](https://github.com/DiaaZiada/Faces/blob/master/images/mini_exception_cnn_model.png)
 
+
+
