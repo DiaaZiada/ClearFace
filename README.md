@@ -60,6 +60,7 @@ to use Faces execute `run.py` file with  various options
 ## Models
 models in this project are based on [Real-time Convolutional Neural Networks for Emotion and Gender Classification](https://arxiv.org/pdf/1710.07557.pdf) paper
 model architecture: 
+
 ![mini exception cnn model](https://github.com/DiaaZiada/Faces/blob/master/images/mini_exception_cnn_model.png)
 
 project consist of 3 models:
