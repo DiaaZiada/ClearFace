@@ -7,5 +7,5 @@ Faces is project for multiple models detection from faces such as:
 5.  Occlusion : _Glasses, Beard, Ornaments, Hair, Hand, None, Others_
 6.  Age : _Child, Young, Middle and Old_
 7.  Makeup : _Partial makeup, Over-makeup_
-
+![enter image description here](https://github.com/DiaaZiada/Faces/blob/master/images/mini_exception_cnn_model.png)
 
