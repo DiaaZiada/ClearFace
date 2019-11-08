@@ -1,6 +1,6 @@
 
 # Faces
-Faces is project for multiple models detection from faces such as:
+Faces is project for multiple models detection and tracking faces such as:
 1.  Gender : _Male, Female_
 2.  Expressions : _Anger, Happiness, Sadness, Surprise, Fear, Disgust_
 3.  Illumination : _Bad, Medium, High_
@@ -35,23 +35,37 @@ and here some examples of prediction on images
 
 ## Run
 to use Faces execute `run.py` file with  various options
-`
-  usage: run.py [-h] [--cuda CUDA] [--show SHOW] [--delay DELAY]
+```
+usage: run.py [-h] [--cuda CUDA] [--show SHOW] [--delay DELAY]
                   [--inputs_path INPUTS_PATH] [--outputs_path OUTPUTS_PATH]
                   [--models_path MODELS_PATH] [--models MODELS [MODELS ...]]
- `                 
-    
-    optional arguments:
-    * -h, --help            show this help message and exit
-    
-    * --cuda CUDA           set this parameter to True value if you want to use cuda gpu, default is True
-    * --show SHOW           set this parameter to True value if you want display images/videos while processing, default is True
-    * --delay DELAY         amount of seconds to wait to switch between images while show the precess
-    * --inputs_path INPUTS_PATH path for directory contains images/videos to process, if you don't use it web-cam will open to start the record
-    * --outputs_path OUTPUTS_PATH path for directory to add the precesses images/videos on it, if you don't use it output directory will created and add the precesses images/videos on it
-    * --models_path MODELS_PATH path for directory contains pytorch model
-    * --models MODELS [MODELS ...] first index refers to gender model, second index refers to expression model, and third index refers to multiple models Ex: gender, multiple ->> 1,0,1 we set expression to 0 to not use it, default 1,1,1
-`
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --cuda                set this parameter to True value if you want to use
+                        cuda gpu, default is False
+  --show                set this parameter to True value if you want display
+                        images/videos while processing, default is False
+  --tracking            set this parameter to True value if you want tracking
+                        faces in images/videos, default is False
+  --delay DELAY         amount of seconds to wait to switch between images
+                        while show the precess
+  --inputs_path INPUTS_PATH
+                        path for directory contains images/videos to process,
+                        if you don't use it webcam will open to start the
+                        record
+  --outputs_path OUTPUTS_PATH
+                        path for directory to add the precesses images/videos
+                        on it, if you don't use it output directory will
+                        created and add the precesses images/videos on it
+  --models_path MODELS_PATH
+                        path for directory contains pytorch model
+  --models MODELS [MODELS ...]
+                        first index refers to gender model, second index
+                        refers to expression model, and third index refers to
+                        multiple models
+```
+   
 
 ## Datasets
 * [IMDB](https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/) ~ 500K image
