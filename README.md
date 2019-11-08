@@ -1,3 +1,4 @@
+
 # Faces
 Faces is project for multiple models detection from faces such as:
 1.  Gender : _Male, Female_
@@ -8,7 +9,8 @@ Faces is project for multiple models detection from faces such as:
 6.  Age : _Child, Young, Middle and Old_
 7.  Makeup : _Partial makeup, Over-makeup_
 
-[this video test Faces project on part of video of End Game trailer](https://youtu.be/dmqlNalkFUw), and here some examples of prediction on images
+
+![Ryan Reynolds & Jake Gyllenhaal Answer the Web's Most Searched Questions _ WIRED](https://github.com/DiaaZiada/Faces/blob/master/outputs/result.gif) and here some examples of prediction on images
 
 ![Faces](https://github.com/DiaaZiada/Faces/blob/master/outputs/output_64247356_2248496652127382_3579464820719159220_n.jpg)
 
