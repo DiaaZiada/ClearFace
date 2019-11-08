@@ -113,4 +113,5 @@ all training process done on [Faces notebook](https://github.com/DiaaZiada/Faces
 
 [Real-time Convolutional Neural Networks for Emotion and Gender Classification](https://arxiv.org/pdf/1710.07557.pdf) paper
 
+[Simple object tracking with OpenCV by  pyimagesearch](https://www.pyimagesearch.com/2018/07/23/simple-object-tracking-with-opencv/)
 
