@@ -10,7 +10,9 @@ Faces is project for multiple models detection from faces such as:
 7.  Makeup : _Partial makeup, Over-makeup_
 
 
-![Ryan Reynolds & Jake Gyllenhaal Answer the Web's Most Searched Questions _ WIRED](https://github.com/DiaaZiada/Faces/blob/master/outputs/result.gif) and here some examples of prediction on images
+![Ryan Reynolds & Jake Gyllenhaal Answer the Web's Most Searched Questions _ WIRED](https://github.com/DiaaZiada/Faces/blob/master/outputs/result.gif) 
+
+and here some examples of prediction on images
 
 ![Faces](https://github.com/DiaaZiada/Faces/blob/master/outputs/output_64247356_2248496652127382_3579464820719159220_n.jpg)
 
