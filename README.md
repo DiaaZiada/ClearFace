@@ -1,6 +1,6 @@
 
 # Faces
-Faces is project for multiple models detection and tracking faces such as:
+Faces is project for tracking and multiple models detection from faces such as:
 1.  Gender : _Male, Female_
 2.  Expressions : _Anger, Happiness, Sadness, Surprise, Fear, Disgust_
 3.  Illumination : _Bad, Medium, High_
