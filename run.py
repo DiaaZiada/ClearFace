@@ -20,12 +20,18 @@ def manage():
                                      models detection from faces such as gender,\
                                      expression, age etc')
 
-    parser.add_argument('--cuda', type=bool, default=True, help='set this\
+    parser.add_argument('--cuda', action='store_true', default=False, help='set this\
                         parameter to True value if you want to use cuda gpu,\
-                        default is True')      
-    parser.add_argument('--show', type=bool, default=True, help='set this \
+                        default is False')      
+    
+    parser.add_argument('--show',action='store_true', default=False,help='set this \
                         parameter to True value if you want display \
-                        images/videos while processing, default is True')      
+                        images/videos while processing, default is False')   
+    
+    parser.add_argument('--tracking', action='store_true', default=False, help='set this \
+                        parameter to True value if you want tracking faces in  \
+                        images/videos, default is False')  
+    
     parser.add_argument('--delay', type=float, default=1, help='amount of \
                         seconds to wait to switch between images while show \
                         the precess')      
@@ -33,17 +39,18 @@ def manage():
     parser.add_argument('--inputs_path', type=str,default='', help='path for \
                         directory contains images/videos to process, if\
                         you don\'t use it webcam will open to start the record')
+    
     parser.add_argument('--outputs_path', type=str,default='outputs', help='path\
                         for directory to add the precesses images/videos on it,\
                         if you don\'t use it output directory will created and \
                         add the precesses images/videos on it')
+    
     parser.add_argument('--models_path', type=str, default='models', help='path \
                         for directory contains pytorch model')
 
     parser.add_argument('--models', type=int, nargs='+',default=[1,1,1], help='\
                         first index refers to gender model, second index refers\
-                        to expression model, and third index refers to multiple models\
-                        ')
+                        to expression model, and third index refers to multiple models')
     
     return parser.parse_args()
 
@@ -51,6 +58,8 @@ args = manage()
 
 cuda = args.cuda and torch.cuda.is_available()
 show = args.show
+tracking = args.tracking
+
 
 inputs_path = args.inputs_path
 outputs_path = args.outputs_path
@@ -112,12 +121,11 @@ if not os.path.exists(outputs_path):
     os.mkdir(outputs_path)
 
 if inputs_path == '':
-    video(inputs_path, 'output.avi', outputs_path, models, labels, show)
+    video(inputs_path, 'output.avi', outputs_path, models, labels, show, tracking)
 
 else:
     for file in os.listdir(inputs_path):
-        print('\r')
         if file.split('.')[-1] in image_extensions:
-            image(inputs_path, file, outputs_path, models, labels, delay,show)
+            image(inputs_path, file, outputs_path, models, labels, delay,show, tracking)
         elif file.split('.')[-1] in video_extensions:
-            video(inputs_path, file, outputs_path, models, labels, show)
+            video(inputs_path, file, outputs_path, models, labels, show, tracking)

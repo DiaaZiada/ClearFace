@@ -11,12 +11,15 @@ import torch
 from torch.nn import functional as F
 from torchvision import transforms
 
+from centroidtracker import CentroidTracker
+
 transforms = transforms.Compose([transforms.ToTensor()])
 
 detector = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt2.xml')
 
+ct = CentroidTracker()
 
-def detect(frame,models,labels,frameClone):
+def detect(frame,models,labels,frameClone, tracking):
     
     rects = detector.detectMultiScale(frame, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30),
                                       flags=cv2.CASCADE_SCALE_IMAGE)
@@ -37,7 +40,7 @@ def detect(frame,models,labels,frameClone):
                 pred = torch.argmax(output)
                 acc = output[0][pred]#torch.exp(output[j][pred]) / torch.sum(torch.exp(output[j]))
                 label = labels[i][pred]+" "+str(int(acc * 100.))+" %"
-                cv2.putText(frameClone, label, (fX + fW + 10, fY + 25*i), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (255, 255, 255),2)
+                cv2.putText(frameClone, label, (fX + fW + 10, fY + 25*i), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 0),2)
                 
             
             else:
@@ -48,10 +51,19 @@ def detect(frame,models,labels,frameClone):
                     label = labels[i][j][pred]+" "+str(int(acc * 100.))+" %"
                     cv2.putText(frameClone, label, (fX + fW + 10, fY + 25*i+25*(j) ), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (255, 255, 255),2)
         cv2.rectangle(frameClone, (fX, fY), (fX + fW, fY + fH), (0, 255, 0), 2)
+        if tracking:
+            objects = ct.update(rects)
+    
+        	# loop over the tracked objects
+            for (objectID, centroid) in objects.items():
+                # draw both the ID of the object and the centroid of the
+                # object on the output frame
+                text = "ID {}".format(objectID)
+                cv2.putText(frameClone, text, (centroid[0] - 10, centroid[1] - 10),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0,  255), 2)
+                cv2.circle(frameClone, (centroid[0], centroid[1]), 4, (0, 0, 255), -1)
 
 
-
-def video(path, video, save_path, models, labels, show):
+def video(path, video, save_path, models, labels, show, tracking):
     
     video_bool =  path != ''
     if video_bool:
@@ -81,7 +93,7 @@ def video(path, video, save_path, models, labels, show):
         # original frame so we can draw on it later in the program
 #        frame = imutils.resize(frame, wid/th=500)
         frameClone = frame.copy()
-        detect(frame,models,labels,frameClone)    
+        detect(frame,models,labels,frameClone, tracking)    
         
         out.write(frameClone)    
         if show:
@@ -95,14 +107,14 @@ def video(path, video, save_path, models, labels, show):
     out.release()
     cv2.destroyAllWindows()
     
-def image(path, img, save_path, models, labels, seconds, show):
+def image(path, img, save_path, models, labels, seconds, show, tracking):
     
     frame = cv2.imread(os.path.join(path,img),1)
     
     frame = imutils.resize(frame, width=500)
     
     frameClone = frame.copy()
-    detect(frame,models,labels,frameClone)   
+    detect(frame,models,labels,frameClone, tracking)   
     img = 'output_'+img
     save_path = os.path.join(save_path, img)
     

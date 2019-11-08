@@ -118,7 +118,7 @@ class Classifier(nn.Module):
         
         self.conv2d_f = nn.Conv2d(in_channels=128, out_channels=num_classes,
                                   kernel_size=(3, 3), stride=(1, 1), padding=1)
-        self.glob_avg_bool = nn.AvgPool2d(kernel_size=(13, 13))
+        self.glob_avg_bool = nn.AvgPool2d(kernel_size=(4, 4))
         
     def forward(self, x):
         x = self.conv2d_f(x)
