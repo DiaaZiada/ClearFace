@@ -1,5 +1,5 @@
 # Clear Face
-Clear Face is project for tracking faces and multiple models detection from faces such as:
+Clear Face is python project with C++ library for tracking faces and multiple models detection from faces such as:
  - Gender, Expressions, Illumination, Pose, Occlusion, Age, and Makeup.
 	
 
