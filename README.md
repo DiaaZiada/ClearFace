@@ -21,7 +21,8 @@ Clear Face is python project with C++ library for tracking faces and multiple mo
  - [Python](https://www.python.org/) 3.*
  - [Numpy](http://www.numpy.org/)
  - [OpenCV](https://opencv.org/)
- - [Pytorch](https://pytorch.org/)
+ - [Pytorch](https://pytorch.org/) 1.4
+ - [TorchVision](https://pytorch.org/docs/stable/torchvision/index.html) 0.5
  - [Imutils](https://pypi.org/project/imutils/)
  - [Cmake](https://cmake.org/)
  - C++
