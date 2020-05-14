@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC   -shared -Wl,-soname,libmodule.so -o libmodule.so CMakeFiles/module.dir/module.cpp.o -Wl,-rpath,/media/Tesla/Bug/finalfaces/libtorch/lib ../../libtorch/lib/libtorch.so ../../libtorch/lib/libc10.so ../../libtorch/lib/libc10.so -lpthread -Wl,--no-as-needed,/media/Tesla/Bug/finalfaces/libtorch/lib/libtorch.so -Wl,--as-needed 
