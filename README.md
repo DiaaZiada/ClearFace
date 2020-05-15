@@ -1,53 +1,81 @@
+
 # Clear Face
-Clear Face is python project with C++ library for tracking faces and multiple models detection from faces such as:
+Clear Face is python project with C++/Python libraries for facial landmark detection(in 2d and 3d), tracking faces and multiple models detection from faces such as:
  - Gender, Expressions, Illumination, Pose, Occlusion, Age, and Makeup.
 	
 
-![Ryan Reynolds & Jake Gyllenhaal Answer the Web's Most Searched Questions _ WIRED](https://github.com/DiaaZiada/ClearFace/blob/master/images/resutl.gif) 
+![Ryan Reynolds & Jake Gyllenhaal Answer the Web's Most Searched Questions _ WIRED](https://github.com/DiaaZiada/ClearFace/blob/master/images/ClearFace.gif)
 
 ## Content Tabel
 
- - [Requerments](#requerments)
  - [Download and Setup](#download-and-setup)
+
  - [Running Options](#running-options)
+
  - [Gender Expressions and other models](#gender-expressions-and-other-models)
-	 * [Datasets](#datasets)
-	 * [Models](#models)
-	 * [Train](#train)
-	 * [Convert to TorchScript](#convert-to-torchscript)
+
  - [Face Tracking](#face-tracking)
+
+ - [Facial Landmark Detection](#facial-landmark-detection)
+
  - [Credits](#credits)
 ## Requerments
  - [Python](https://www.python.org/) 3.*
- - [Numpy](http://www.numpy.org/)
- - [OpenCV](https://opencv.org/)
- - [Pytorch](https://pytorch.org/) 1.4
- - [TorchVision](https://pytorch.org/docs/stable/torchvision/index.html) 0.5
- - [Imutils](https://pypi.org/project/imutils/)
  - [Cmake](https://cmake.org/)
  - C++
  - make commad 
  
 ## Download and setup
 **Download Repo**
-`$git clone https://github.com/DiaaZiada/ClearFace.git`
-`$cd ClearFace`
+```bash 
+git clone https://github.com/DiaaZiada/ClearFace.git
+```
+```bash
+cd ClearFace
+```
+**Virtual Environment**
+```bash
+# create virtual environment
+python -m venv ./venv
+```
+```bash
+# activate virtual environment
+source venv/bin/activate
+```
 
+**Install Requirements**
+```bash
+pip install -r requirements.txt
+```
 **Download libtorch for c++ (CPU)**
-`$./download.sh` note: this command will download and extract the libarary
+`$./download.sh` 
+note: this command will download and extract the libarary
+
 **Build all c++ files**
 `$./build.sh`
 
 ## Running Options
 to use ClearFace execute `run.py` file with  various options
 ```
-Clear Faces is project for mutilple models detection from faces such as
-gender, expression, age etc, and Tracking
+usage: run.py [-h] [--show] [--_2d] [--_3d] [--_2d3d] [--tracking]
+              [--delay DELAY] [--inputs_path INPUTS_PATH]
+              [--video_name VIDEO_NAME] [--outputs_path OUTPUTS_PATH]
+              [--models_path MODELS_PATH] [--cam_num CAM_NUM]
+              [--models MODELS [MODELS ...]]
+
+Clear Face is python project with C++/Python libraries for facial landmark detection(in 2d and 3d), tracking faces and multiple models detection from faces such as:
+ - Gender, Expressions, Illumination, Pose, Occlusion, Age, and Makeup.
 
 optional arguments:
   -h, --help            show this help message and exit
   --show                set this parameter to True value if you want display
                         images/videos while processing, default is False
+  --_2d                 set this parameter to True value if you 2d landmarks
+                        from from the 2d model, default is False
+  --_3d                 set this parameter to True value if you 3d landmarks
+                        from from the 3d model, default is False
+  --_2d3d               set this parameter to True value if you 2d landmarks
+                        from from the 3d model, default is False
   --tracking            set this parameter to True value if you want tracking
                         faces in images/videos, default is False
   --delay DELAY         amount of seconds to wait to switch between images
@@ -69,12 +97,14 @@ optional arguments:
                         first index refers to gender model, second index
                         refers to expression model, and third index refers to
                         multiple models
+
 ```
 **Examples**
 for process images/videos in directory
-`$python run.py --inputs_path /path/to/inputs_dir --tracking  --show`  
+`$python run.py --inputs_path /path/to/inputs_dir --tracking  --show --_2d3d --_3d`  
 to use webcam 
-`$python run.py --tracking  --show`   
+`$python run.py ---tracking  --show --_2d3d --_3d`   
+
 ## Gender Expressions and other models
 1.  Gender : _Male, Female_
 2.  Expressions : _Anger, Happiness, Sadness, Surprise, Fear, Disgust_
@@ -133,6 +163,12 @@ all convertions about this part will found in this [notebook](https://github.com
 
 ## Face Tracking
 we used the centroid tracking algorithm
+## Facial Landmark Detection
+### DataSet
+[kaggle youtube faces with facial keypoints](https://www.kaggle.com/selfishgene/youtube-faces-with-facial-keypoints) ~ 150K image
+
+### Train
+all training process for the 2d and 3d model done in this [notebook]([https://github.com/DiaaZiada/ClearFace/blob/master/notebooks/Facial_Keypoints_Detection.ipynb](https://github.com/DiaaZiada/ClearFace/blob/master/notebooks/Facial_Keypoints_Detection.ipynb)) using [Google Colab](https://colab.research.google.com) cloud 
 
 ## Credits
 
@@ -141,3 +177,5 @@ we used the centroid tracking algorithm
 * [Extending TorchScript with Custom C++ Operators](https://github.com/pytorch/tutorials/blob/master/advanced_source/torch_script_custom_ops.rst)
 * [CMake Tutorial](https://medium.com/@onur.dundar1/cmake-tutorial-585dd180109b)
 * [Ryan Reynolds and Jake Gyllenhaal interview for LIFE, DEADPOOL - UNCENSORED](https://www.youtube.com/watch?v=_kB5K33bd6Y&t=3s) Youtube
+* [1adrianb face alignment](https://github.com/1adrianb/face-alignment) repo
+
