@@ -175,6 +175,9 @@ we used the centroid tracking algorithm
 ### Train
 all training process for the 2d and 3d model done in this [notebook](https://github.com/DiaaZiada/ClearFace/blob/master/notebooks/Facial_Keypoints_Detection.ipynb) using [Google Colab](https://colab.research.google.com) cloud 
 
+### Pre-Trained Models
+You can email me on **diaa.elsayedziada@gmail.com** to get the pre-trained models
+
 ## Credits
 
 * [Real-time Convolutional Neural Networks for Emotion and Gender Classification](https://arxiv.org/pdf/1710.07557.pdf) paper
