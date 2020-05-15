@@ -5,9 +5,9 @@ from utils import input_dir, camera
 
 def args():
     
-    parser = argparse.ArgumentParser(description='Clear Faces is project for mutilple \
-                                     models detection from faces such as gender,\
-                                     expression, age etc, and Tracking')
+    parser = argparse.ArgumentParser(description='Clear Face is python project with C++/Python libraries \
+    for facial landmark detection(in 2d and 3d), tracking faces and multiple models detection from faces such as:\
+ - Gender, Expressions, Illumination, Pose, Occlusion, Age, and Makeup.')
     
     parser.add_argument('--show',action='store_true', default=False,help='set this \
                         parameter to True value if you want display \
