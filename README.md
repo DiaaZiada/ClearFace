@@ -48,11 +48,15 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 **Download libtorch for c++ (CPU)**
-`$./download.sh` 
+```bash
+./download.sh
+``` 
 note: this command will download and extract the libarary
 
 **Build all c++ files**
-`$./build.sh`
+```bash
+./build.sh
+```
 
 ## Running Options
 to use ClearFace execute `run.py` file with  various options
