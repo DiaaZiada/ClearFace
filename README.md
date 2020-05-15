@@ -1,4 +1,5 @@
 
+
 # Clear Face
 Clear Face is python project with C++/Python libraries for facial landmark detection(in 2d and 3d), tracking faces and multiple models detection from faces such as:
  - Gender, Expressions, Illumination, Pose, Occlusion, Age, and Makeup.
@@ -172,7 +173,7 @@ we used the centroid tracking algorithm
 [kaggle youtube faces with facial keypoints](https://www.kaggle.com/selfishgene/youtube-faces-with-facial-keypoints) ~ 150K image
 
 ### Train
-all training process for the 2d and 3d model done in this [notebook]([https://github.com/DiaaZiada/ClearFace/blob/master/notebooks/Facial_Keypoints_Detection.ipynb](https://github.com/DiaaZiada/ClearFace/blob/master/notebooks/Facial_Keypoints_Detection.ipynb)) using [Google Colab](https://colab.research.google.com) cloud 
+all training process for the 2d and 3d model done in this [notebook](https://github.com/DiaaZiada/ClearFace/blob/master/notebooks/Facial_Keypoints_Detection.ipynb) using [Google Colab](https://colab.research.google.com) cloud 
 
 ## Credits
 
